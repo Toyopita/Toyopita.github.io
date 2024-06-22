@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyopita - Official Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Old English';
+            src: url('path-to-your-old-english-font-file.woff2') format('woff2'),
+                 url('path-to-your-old-english-font-file.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary-color: #1db954;
+            --background-color: #121212;
+            --text-color: #ffffff;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .hero {
+            height: 100vh;
+            background-color: #333; /* フォールバック背景色 */
+            background-image: url('path-to-your-top-image.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        h1 {
+            font-family: 'Old English', serif;
+            font-size: 6rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 1rem 1.5rem;
+            display: block;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 2rem;
+        }
+        section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        section.visible h2 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .spotify-embed {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+            }
+            nav ul li {
+                flex: 1 1 auto;
+                text-align: center;
+            }
+            nav ul li a {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h1>Toyopita</h1>
+            <p>Sound Engineer / Producer / Remixer</p>
+        </div>
+    </div>
+
+    <main>
+        <section id="about">
+            <h2>Artist Profile</h2>
+            <p>Born in Osaka in 1992, Toyopita began his musical journey in 2019. A true all-rounder, he handles every aspect of music production from track-making to mastering. His unique sound fuses electronic, hip-hop, and R&B, transcending genre boundaries.</p>
+        </section>
+
+        <section id="music">
+            <h2>Latest Music</h2>
+            <p>Check out Toyopita's innovative sound on Spotify.</p>
+            <div class="spotify-embed">
+                <iframe src="https://open.spotify.com/embed/intl-ja/artist/6dEulYPan4tK73h2RMu1Ce?si=4DT6dGYqSfO4pRBO_A--Kw" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Career Highlights</h2>
+            <ul>
+                <li>2021: Winner of the 1st and 2nd 8-bar Awards</li>
+                <li>2021: Participated in Hokkaido rapper 4ceFINGER's EP "44 MAGNUM" under the name sudd</li>
+                <li>2022: Remix of HIBIKILLA's "LUNA" featured on Apple Music's "Latest R&B Playlist"</li>
+                <li>2022: Remix of HIBIKILLA's "Risin' to the Top feat. LAYA" featured on Spotify's official "Soul Music Japan" playlist</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For inquiries about collaborations, production, or remixes, please contact:</p>
+            <p>Email: contact@toyopita-official.com</p>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        entry.target.classList.remove('hidden');
+                    } else {
+                        entry.target.classList.remove('visible');
+                        entry.target.classList.add('hidden');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('section').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
