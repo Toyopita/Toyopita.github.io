@@ -30,7 +30,7 @@
         }
         .hero {
             height: 100vh;
-            background-color: #333; /* フォールバック背景色 */
+            background-color: #333;
             background-image: url('FullSizeRender.jpg');
             background-size: cover;
             background-position: center;
@@ -62,13 +62,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             opacity: 0;
             transition: opacity 3s ease-out;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 2s ease, transform 2s ease;
         }
         nav {
             position: fixed;
@@ -137,12 +130,15 @@
             color: var(--text-color);
             margin-bottom: 1rem;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateX(-50px); /* 左からフェードイン */
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        h2.from-right {
+            transform: translateX(50px); /* 右からフェードイン */
         }
         section.visible h2 {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
         p {
             font-size: 1.1rem;
@@ -157,6 +153,10 @@
         @media (max-width: 768px) {
             h1 {
                 font-size: 4rem;
+            }
+            .hero {
+                background-size: contain;
+                background-repeat: no-repeat;
             }
             nav ul {
                 display: none;
@@ -221,7 +221,7 @@
         </section>
 
         <section id="music">
-            <h2>Latest Music</h2>
+            <h2 class="from-right">Latest Music</h2>
             <p>Check out Toyopita's innovative sound on Spotify</p>
             <div class="spotify-embed">
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6dEulYPan4tK73h2RMu1Ce?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -239,9 +239,9 @@
         </section>
 
         <section id="contact">
-            <h2>Contact</h2>
+            <h2 class="from-right">Contact</h2>
             <p>For inquiries about collaborations, production, or remixes, please contact:</p>
-            <p>Email: contact@toyopita-official.com</p>
+            <p>Email: <a href="mailto:contact@toyopita-official.com">contact@toyopita-official.com</a></p>
         </section>
     </main>
 
@@ -316,16 +316,9 @@
             handleResize();
 
             window.onload = () => {
-                const h1 = document.querySelector('.hero-content h1');
-                const p = document.querySelector('.hero-content p');
-
+                window.scrollTo(0, 0);
                 setTimeout(() => {
-                    h1.style.opacity = '1';
-                    
-                    setTimeout(() => {
-                        p.style.opacity = '1';
-                        p.style.transform = 'translateY(0)';
-                    }, 2000); // TOYOPITAのフェードイン開始から2秒後に開始
+                    document.querySelector('h1').style.opacity = '1';
                 }, 1000);
             };
         });
