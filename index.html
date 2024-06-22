@@ -26,10 +26,11 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
         .hero {
             height: 100vh;
-            background-color: #333; /* フォールバック背景色 */
+            background-color: #333;
             background-image: url('FullSizeRender.jpg');
             background-size: cover;
             background-position: center;
@@ -58,8 +59,9 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 3px;
-            animation: fadeInUp 1s ease-out;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 2s ease-out;
         }
         nav {
             position: fixed;
@@ -78,6 +80,9 @@
         }
         nav ul li {
             margin: 0;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         nav ul li a {
             color: var(--text-color);
@@ -89,6 +94,18 @@
         }
         nav ul li a:hover {
             color: var(--primary-color);
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px 0;
+            transition: all 0.5s ease;
         }
         main {
             position: relative;
@@ -112,13 +129,6 @@
             font-size: 2.5rem;
             color: var(--text-color);
             margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        section.visible h2 {
-            opacity: 1;
-            transform: translateY(0);
         }
         p {
             font-size: 1.1rem;
@@ -130,35 +140,50 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
         @media (max-width: 768px) {
             h1 {
                 font-size: 4rem;
             }
             nav ul {
-                flex-wrap: wrap;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(18, 18, 18, 0.95);
+            }
+            nav ul.active {
+                display: flex;
             }
             nav ul li {
-                flex: 1 1 auto;
                 text-align: center;
             }
             nav ul li a {
-                padding: 0.5rem;
+                padding: 1rem;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
             }
         }
     </style>
 </head>
 <body>
     <nav>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -212,10 +237,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        entry.target.classList.remove('hidden');
-                    } else {
-                        entry.target.classList.remove('visible');
-                        entry.target.classList.add('hidden');
                     }
                 });
             }, {
@@ -225,6 +246,67 @@
             document.querySelectorAll('section').forEach((section) => {
                 observer.observe(section);
             });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navUl = document.querySelector('nav ul');
+            const navItems = document.querySelectorAll('nav ul li');
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                navUl.classList.toggle('active');
+                
+                if (navUl.classList.contains('active')) {
+                    navItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100 * (index + 1));
+                    });
+                } else {
+                    navItems.forEach(item => {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(-20px)';
+                    });
+                }
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            function handleResize() {
+                if (window.innerWidth > 768) {
+                    navUl.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    navItems.forEach(item => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    });
+                } else {
+                    if (!navUl.classList.contains('active')) {
+                        navItems.forEach(item => {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(-20px)';
+                        });
+                    }
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
+
+            window.onload = () => {
+                window.scrollTo(0, 0);
+                setTimeout(() => {
+                    document.querySelector('h1').style.opacity = '1';
+                }, 1000); // 1秒後にTOYOPITAの文字を表示
+            };
         });
     </script>
 </body>
