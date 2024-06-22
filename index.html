@@ -63,6 +63,13 @@
             opacity: 0;
             transition: opacity 3s ease-out;
         }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 2s ease, transform 2s ease;
+        }
         nav {
             position: fixed;
             top: 0;
@@ -149,6 +156,16 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         @media (max-width: 768px) {
             h1 {
@@ -316,9 +333,16 @@
             handleResize();
 
             window.onload = () => {
-                window.scrollTo(0, 0);
+                const h1 = document.querySelector('.hero-content h1');
+                const p = document.querySelector('.hero-content p');
+
                 setTimeout(() => {
-                    document.querySelector('h1').style.opacity = '1';
+                    h1.style.opacity = '1';
+
+                    setTimeout(() => {
+                        p.style.opacity = '1';
+                        p.style.transform = 'translateY(0)';
+                    }, 2000);
                 }, 1000);
             };
         });
