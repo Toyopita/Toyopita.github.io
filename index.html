@@ -160,6 +160,15 @@
             opacity: 1;
             transform: translateY(0);
         }
+        ul li {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        ul.visible li {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .spotify-embed {
             margin: 2rem 0;
             border-radius: 12px;
@@ -246,7 +255,7 @@
 
         <section id="achievements">
             <h2>Career Highlights</h2>
-            <ul>
+            <ul class="visible">
                 <li>2021: Winner of the 1st and 2nd 8-bar Awards</li>
                 <li>2021: Participated in Hokkaido rapper 4ceFINGER's EP "44 MAGNUM" under the name sudd</li>
                 <li>2022: Remix of HIBIKILLA's "LUNA" featured on Apple Music's "Latest R&B Playlist"</li>
