@@ -151,6 +151,15 @@
             font-size: 1.1rem;
             line-height: 1.8;
         }
+        ul {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        section.visible ul {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .spotify-embed {
             margin: 2rem 0;
             border-radius: 12px;
@@ -254,6 +263,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
+            window.scrollTo(0, 0);  // ページ読み込み時に最上部にスクロール
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -323,7 +334,6 @@
             handleResize();
 
             window.onload = () => {
-                window.scrollTo(0, 0);
                 const h1 = document.querySelector('.hero-content h1');
                 const p = document.querySelector('.hero-content p');
 
