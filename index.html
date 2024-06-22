@@ -157,16 +157,6 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
         @media (max-width: 768px) {
             h1 {
                 font-size: 4rem;
@@ -333,6 +323,7 @@
             handleResize();
 
             window.onload = () => {
+                window.scrollTo(0, 0);
                 const h1 = document.querySelector('.hero-content h1');
                 const p = document.querySelector('.hero-content p');
 
