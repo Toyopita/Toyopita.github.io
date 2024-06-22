@@ -30,7 +30,7 @@
         }
         .hero {
             height: 100vh;
-            background-color: #333;
+            background-color: #333; /* フォールバック背景色 */
             background-image: url('FullSizeRender.jpg');
             background-size: cover;
             background-position: center;
@@ -70,7 +70,125 @@
             transform: translateY(-20px);
             transition: opacity 2s ease, transform 2s ease;
         }
-        /* 他のスタイルは変更なし */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 1rem 1.5rem;
+            display: block;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px 0;
+            transition: all 0.5s ease;
+        }
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 2rem;
+        }
+        section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        section.visible h2 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .spotify-embed {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(18, 18, 18, 0.95);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                text-align: center;
+            }
+            nav ul li a {
+                padding: 1rem;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -97,7 +215,34 @@
     </div>
 
     <main>
-        <!-- セクションの内容は変更なし -->
+        <section id="about">
+            <h2>Artist Profile</h2>
+            <p>Born in Osaka in 1992, Toyopita began his musical journey in 2019. A true all-rounder, he handles every aspect of music production from track-making to mastering. His unique sound fuses electronic, hip-hop, and R&B, transcending genre boundaries.</p>
+        </section>
+
+        <section id="music">
+            <h2>Latest Music</h2>
+            <p>Check out Toyopita's innovative sound on Spotify</p>
+            <div class="spotify-embed">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6dEulYPan4tK73h2RMu1Ce?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Career Highlights</h2>
+            <ul>
+                <li>2021: Winner of the 1st and 2nd 8-bar Awards</li>
+                <li>2021: Participated in Hokkaido rapper 4ceFINGER's EP "44 MAGNUM" under the name sudd</li>
+                <li>2022: Remix of HIBIKILLA's "LUNA" featured on Apple Music's "Latest R&B Playlist"</li>
+                <li>2022: Remix of HIBIKILLA's "Risin' to the Top feat. LAYA" featured on Spotify's official "Soul Music Japan" playlist</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For inquiries about collaborations, production, or remixes, please contact:</p>
+            <p>Email: contact@toyopita-official.com</p>
+        </section>
     </main>
 
     <script>
