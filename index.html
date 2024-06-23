@@ -7,8 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
-            font-family: 'CustomToyopitaFont';
-            src: url('Canterbury.ttf') format('truetype');
+            font-family: 'Old English';
+            src: url('path-to-your-old-english-font-file.woff2') format('woff2'),
+                 url('path-to-your-old-english-font-file.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
@@ -31,9 +32,9 @@
             height: 100vh;
             background-color: #333;
             background-image: url('FullSizeRender.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+            background-size: cover; /* Maintain aspect ratio */
+            background-repeat: no-repeat; /* Prevent background repeat */
+            background-position: center; /* Default position for desktop */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -59,20 +60,18 @@
             z-index: 1;
         }
         h1 {
+            font-family: 'Old English', serif;
             font-size: 6rem;
             margin: 0;
+            text-transform: uppercase;
             letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             opacity: 0;
             transition: opacity 3s ease-out;
         }
-        .toyopita-logo {
-            font-family: 'CustomToyopitaFont', serif;
-            text-transform: capitalize;
-            color: white;
-        }
         .hero-content p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+            font-size: 1.2rem; /* Increase font size by 20% */
+            margin-top: 0.5rem; /* Reduce space between h1 and p */
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 2s ease, transform 2s ease;
@@ -202,15 +201,15 @@
         }
         @media (max-width: 768px) {
             .hero {
-                background-position: 80% center;
-                height: 100vh;
+                background-position: 80% center; /* Move background image 20% towards the right */
+                height: 100vh; /* Adjust height to remove top and bottom space */
             }
             h1 {
-                font-size: 2rem;
+                font-size: 2rem; /* Smaller font size for smaller screens */
             }
             .hero-content p {
-                font-size: 0.5rem;
-                margin-top: 0.5rem;
+                font-size: 0.5rem; /* Smaller font size for smaller screens */
+                margin-top: 0.5rem; /* Reduce space between h1 and p */
             }
             nav ul {
                 display: none;
@@ -264,7 +263,7 @@
 
     <div class="hero" id="home">
         <div class="hero-content">
-            <h1><span class="toyopita-logo">Toyopita</span></h1>
+            <h1>Toyopita</h1>
             <p>Sound Engineer / Producer / Remixer</p>
         </div>
     </div>
@@ -377,10 +376,6 @@
                 const hero = document.querySelector('.hero');
                 const h1 = document.querySelector('.hero-content h1');
                 const p = document.querySelector('.hero-content p');
-                const logoSpan = document.querySelector('.toyopita-logo');
-
-                // Ensure the logo text is correctly capitalized
-                logoSpan.textContent = 'Toyopita';
 
                 setTimeout(() => {
                     hero.classList.add('visible');
@@ -394,9 +389,9 @@
 
                             setTimeout(() => {
                                 nav.classList.add('visible');
-                            }, 2000);
-                        }, 2000);
-                    }, 3000);
+                            }, 2000); // Delay for nav to appear after p is fully visible
+                        }, 2000); // Delay for p to appear after h1 is fully visible
+                    }, 3000); // Delay for h1 to appear after hero image is fully visible
                 }, 1000);
             };
         });
