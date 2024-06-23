@@ -81,14 +81,16 @@
         nav ul {
             display: flex;
             justify-content: center;
+            align-items: center;
             list-style-type: none;
             padding: 0;
             margin: 0;
+            height: 60px;
         }
         nav ul li {
             margin: 0;
             opacity: 1;
-            transform: translateY(0px);
+            transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         nav ul li a {
@@ -100,7 +102,7 @@
             display: block;
         }
         nav ul li a:hover {
-            color: var(--primary-color);
+            color: #ff0000;
         }
         .hamburger {
             display: none;
@@ -137,11 +139,11 @@
             color: var(--text-color);
             margin-bottom: 1rem;
             opacity: 0;
-            transform: translateX(-50px); /* 左からフェードイン */
+            transform: translateX(-50px);
             transition: opacity 1s ease, transform 1s ease;
         }
         h2.from-right {
-            transform: translateX(50px); /* 右からフェードイン */
+            transform: translateX(50px);
         }
         section.visible h2 {
             opacity: 1;
@@ -153,7 +155,7 @@
         }
         ul {
             opacity: 1;
-            transform: translateY(20px);
+            transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         section.visible ul {
@@ -162,7 +164,7 @@
         }
         ul li {
             opacity: 1;
-            transform: translateY(20px);
+            transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         ul.visible li {
@@ -175,13 +177,10 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        a {
-    color: #ffffff; /* リンク（メールアドレス含む）の色を白に設定 */
-    text-decoration: none;
-            }
-
-        
+        a, a:visited, a:hover, a:active {
+            color: #ffffff;
+            text-decoration: none;
+        }
         @media (max-width: 768px) {
             h1 {
                 font-size: 4rem;
@@ -198,6 +197,7 @@
                 left: 0;
                 width: 100%;
                 background-color: rgba(18, 18, 18, 0.95);
+                height: auto;
             }
             nav ul.active {
                 display: flex;
@@ -273,13 +273,13 @@
         <section id="contact">
             <h2 class="from-right">Contact</h2>
             <p>For inquiries about collaborations, production, or remixes, please contact:</p>
-            <p>Email: <a href="mailto:toyopitawhich@gmail.com">toyopitawhich@gmail.com</a></p>
+            <p>Email: <a href="mailto:contact@toyopita-official.com">contact@toyopita-official.com</a></p>
         </section>
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            window.scrollTo(0, 0);  // ページ読み込み時に最上部にスクロール
+            window.scrollTo(0, 0);
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
