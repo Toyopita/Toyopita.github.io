@@ -53,7 +53,7 @@
             text-align: center;
             z-index: 1;
         }
-        h1 {
+        .hero-content h1 {
             font-family: 'Old English', serif;
             font-size: 6rem;
             margin: 0;
@@ -137,11 +137,11 @@
             color: var(--text-color);
             margin-bottom: 1rem;
             opacity: 0;
-            transform: translateX(-50px); /* 左からフェードイン */
+            transform: translateX(-50px);
             transition: opacity 1s ease, transform 1s ease;
         }
         h2.from-right {
-            transform: translateX(50px); /* 右からフェードイン */
+            transform: translateX(50px);
         }
         section.visible h2 {
             opacity: 1;
@@ -153,7 +153,7 @@
         }
         ul {
             opacity: 1;
-            transform: translateY(0px);
+            transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         section.visible ul {
@@ -162,7 +162,7 @@
         }
         ul li {
             opacity: 1;
-            transform: translateY(0px);
+            transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         ul.visible li {
@@ -175,9 +175,16 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
         @media (max-width: 768px) {
-            h1 {
-                font-size: 4rem;
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
             }
             .hero {
                 background-size: contain;
@@ -272,7 +279,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            window.scrollTo(0, 0);  // ページ読み込み時に最上部にスクロール
+            window.scrollTo(0, 0);
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
