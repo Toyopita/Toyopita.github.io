@@ -137,11 +137,11 @@
             color: var(--text-color);
             margin-bottom: 1rem;
             opacity: 0;
-            transform: translateX(-50px); /* 左からフェードイン /
+            transform: translateX(-50px); /* 左からフェードイン */
             transition: opacity 1s ease, transform 1s ease;
         }
         h2.from-right {
-            transform: translateX(50px); / 右からフェードイン */
+            transform: translateX(50px); /* 右からフェードイン */
         }
         section.visible h2 {
             opacity: 1;
@@ -152,8 +152,8 @@
             line-height: 1.8;
         }
         ul {
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         section.visible ul {
@@ -161,8 +161,8 @@
             transform: translateY(0);
         }
         ul li {
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         ul.visible li {
@@ -295,7 +295,7 @@
             function toggleMenu() {
                 hamburger.classList.toggle('active');
                 navUl.classList.toggle('active');
-
+                
                 if (navUl.classList.contains('active')) {
                     navItems.forEach((item, index) => {
                         setTimeout(() => {
