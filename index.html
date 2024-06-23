@@ -32,7 +32,8 @@
             height: 100vh;
             background-color: #333;
             background-image: url('FullSizeRender.jpg');
-            background-size: cover;
+            background-size: contain; /* Change to contain to maintain aspect ratio */
+            background-repeat: no-repeat; /* Prevent background repeat */
             background-position: center;
             display: flex;
             align-items: center;
@@ -69,7 +70,7 @@
             transition: opacity 3s ease-out;
         }
         .hero-content p {
-            font-size: 1rem;
+            font-size: 0.7rem; /* Make the font size smaller */
             margin-top: 1rem;
             opacity: 0;
             transform: translateY(-20px);
