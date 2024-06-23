@@ -85,6 +85,11 @@
             height: 60px;
             display: flex;
             align-items: center;
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+        nav.visible {
+            opacity: 1;
         }
         nav ul {
             display: flex;
@@ -239,7 +244,7 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav id="nav">
         <div class="hamburger">
             <div></div>
             <div></div>
@@ -365,12 +370,14 @@
             handleResize();
 
             window.onload = () => {
+                const nav = document.getElementById('nav');
                 const hero = document.querySelector('.hero');
                 const h1 = document.querySelector('.hero-content h1');
                 const p = document.querySelector('.hero-content p');
 
                 setTimeout(() => {
                     hero.classList.add('visible');
+                    nav.classList.add('visible');
 
                     setTimeout(() => {
                         h1.style.opacity = '1';
