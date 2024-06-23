@@ -371,12 +371,15 @@
 
                 setTimeout(() => {
                     hero.classList.add('visible');
-                    h1.style.opacity = '1';
 
                     setTimeout(() => {
-                        p.style.opacity = '1';
-                        p.style.transform = 'translateY(0)';
-                    }, 2000);
+                        h1.style.opacity = '1';
+
+                        setTimeout(() => {
+                            p.style.opacity = '1';
+                            p.style.transform = 'translateY(0)';
+                        }, 2000);
+                    }, 3000); // Delay for h1 to appear after hero image is fully visible
                 }, 1000);
             };
         });
