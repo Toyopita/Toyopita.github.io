@@ -6,14 +6,6 @@
     <title>Toyopita - Official Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Old English';
-            src: url('path-to-your-old-english-font-file.woff2') format('woff2'),
-                 url('path-to-your-old-english-font-file.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         :root {
             --primary-color: #1db954;
             --background-color: #121212;
@@ -32,9 +24,9 @@
             height: 100vh;
             background-color: #333;
             background-image: url('FullSizeRender.jpg');
-            background-size: cover; /* Maintain aspect ratio */
-            background-repeat: no-repeat; /* Prevent background repeat */
-            background-position: center; /* Default position for desktop */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,7 +52,7 @@
             z-index: 1;
         }
         h1 {
-            font-family: 'Old English', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 6rem;
             margin: 0;
             text-transform: uppercase;
@@ -70,8 +62,8 @@
             transition: opacity 3s ease-out;
         }
         .hero-content p {
-            font-size: 1.2rem; /* Increase font size by 20% */
-            margin-top: 0.5rem; /* Reduce space between h1 and p */
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 2s ease, transform 2s ease;
@@ -181,6 +173,7 @@
             opacity: 1;
             transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
+            margin-bottom: 1rem;
         }
         ul.visible li {
             opacity: 1;
@@ -201,15 +194,15 @@
         }
         @media (max-width: 768px) {
             .hero {
-                background-position: 80% center; /* Move background image 20% towards the right */
-                height: 100vh; /* Adjust height to remove top and bottom space */
+                background-position: 80% center;
+                height: 100vh;
             }
             h1 {
-                font-size: 2rem; /* Smaller font size for smaller screens */
+                font-size: 2rem;
             }
             .hero-content p {
-                font-size: 0.5rem; /* Smaller font size for smaller screens */
-                margin-top: 0.5rem; /* Reduce space between h1 and p */
+                font-size: 0.5rem;
+                margin-top: 0.5rem;
             }
             nav ul {
                 display: none;
@@ -255,8 +248,8 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#music">Music</a></li>
             <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#music">Music</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -274,40 +267,42 @@
             <p>Born in Osaka in 1992, Toyopita began his musical journey in 2019. A true all-rounder, he handles every aspect of music production from track-making to mastering. His unique sound fuses electronic, hip-hop, and R&B, transcending genre boundaries.</p>
         </section>
 
+        <section id="achievements">
+            <h2>Career Highlights</h2>
+            <ul>
+                <li>2019: Debuted as Toyopita Which, launching a career in electronic music production and sound engineering</li>
+                <li>2021: Featured on 4ceFINGER's EP "44 MAGNUM", gaining recognition on HIP HOP DNA</li>
+                <li>2021: Released "Know Your Roots", a remix distributed through Universal Music's Spinnup Japan, expanding reach in the international music market</li>
+                <li>2021: Collaborated with rapper NO NAME, showcasing versatility in cross-genre productions</li>
+                <li>2021: Won awards in both the 1st and 2nd 8-bar Awards. The track "Fivepita" received high praise from Kubota Masahiko</li>
+                <li>2022: Remix of HIBIKILLA's "LUNA" featured on Apple Music's official "Latest R&B Playlist", marking entry into international streaming platforms</li>
+                <li>2022: Remix of HIBIKILLA's "Risin' to the Top feat. LAYA" featured on Spotify's official "Soul Music Japan" playlist, further establishing presence in the digital music sphere</li>
+                <li>2023: Contributed 3 tracks to HIBIKILLA's album "KillerTune", which reached #1 on iTunes Reggae Chart, demonstrating success in the reggae and dancehall genres</li>
+                <li>2023: Remixed HIBIKILLA's "Yohaku & Sentence" featuring R&B singer KOTA</li>
+            </ul>
+        </section>
+
         <section id="music">
             <h2 class="from-right">Latest Music</h2>
             <p>Check out Toyopita's innovative sound on Spotify</p>
             <div class="spotify-embed">
-		<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6dEulYPan4tK73h2RMu1Ce?utm_source=generator&theme=0" width="100%" height="750" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
-        </section>
-
-        <section id="achievements">
-            <h2>Career Highlights</h2>
-            <ul class="visible">
-                <li>2021: Winner of the 1st and 2nd 8-bar Awards</li>
-                <li>2021: Participated in Hokkaido rapper 4ceFINGER's EP "44 MAGNUM" under the name sudd</li>
-                <li>2022: Remix of HIBIKILLA's "LUNA" featured on Apple Music's "Latest R&B Playlist"</li>
-                <li>2022: Remix of HIBIKILLA's "Risin' to the Top feat. LAYA" featured on Spotify's official "Soul Music Japan" playlist</li>
-            </ul>
-        </section>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6dEulYPan4tK73h2RMu1Ce?utm_source=generator&theme=0" width="100%" height="750" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+           </section>
 
         <section id="contact">
             <h2 class="from-right">Contact</h2>
-            <p>For inquiries about collaborations, production, or remixes, please contact:</p>
-            <p>Email: <a href="mailto:toyopitawhich@gmail.com">toyopitawhich@gmail.com</a></p>
+            <p>For inquiries about collaborations, producti            <p>Email: <a href="mailto:toyopitawhich@gmail.com">toyopitawhich@gmail.com</a></p>
         </section>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            window.scrollTo(0, 0);
+        document.addEventListener('DOMContentLoaded', (eve            window.scrollTo(0, 0);
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                    }
-                });
+                       });
             }, {
                 threshold: 0.1
             });
@@ -317,8 +312,7 @@
             });
 
             const hamburger = document.querySelector('.hamburger');
-            const navUl = document.querySelector('nav ul');
-            const navItems = document.querySelectorAll('nav ul li');
+            const navUl = document.query            const navItems = document.querySelectorAll('nav ul li');
 
             function toggleMenu() {
                 hamburger.classList.toggle('active');
@@ -326,16 +320,14 @@
                 
                 if (navUl.classList.contains('active')) {
                     navItems.forEach((item, index) => {
-                        setTimeout(() => {
-                            item.style.opacity = '1';
+                                            item.style.opacity = '1';
                             item.style.transform = 'translateY(0)';
                         }, 100 * (index + 1));
                     });
                 } else {
                     navItems.forEach(item => {
                         item.style.opacity = '0';
-                        item.style.transform = 'translateY(-20px)';
-                    });
+                        item.                    });
                 }
             }
 
@@ -343,8 +335,7 @@
 
             document.querySelectorAll('nav ul li a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        toggleMenu();
+                    i                        toggleMenu();
                     }
                 });
             });
@@ -353,14 +344,12 @@
                 if (window.innerWidth > 768) {
                     navUl.classList.remove('active');
                     hamburger.classList.remove('active');
-                    navItems.forEach(item => {
-                        item.style.opacity = '1';
+                    navItem                        item.style.opacity = '1';
                         item.style.transform = 'translateY(0)';
                     });
                 } else {
                     if (!navUl.classList.contains('active')) {
-                        navItems.forEach(item => {
-                            item.style.opacity = '0';
+                                               item.style.opacity = '0';
                             item.style.transform = 'translateY(-20px)';
                         });
                     }
@@ -368,14 +357,12 @@
             }
 
             window.addEventListener('resize', handleResize);
-            handleResize();
-
+  
             window.onload = () => {
                 const nav = document.getElementById('nav');
                 const hero = document.querySelector('.hero');
                 const h1 = document.querySelector('.hero-content h1');
-                const p = document.querySelector('.hero-content p');
-
+                const p = document.querySelector('.hero-conten
                 setTimeout(() => {
                     hero.classList.add('visible');
 
@@ -386,11 +373,10 @@
                             p.style.opacity = '1';
                             p.style.transform = 'translateY(0)';
 
-                            setTimeout(() => {
-                                nav.classList.add('visible');
-                            }, 2000); // Delay for nav to appear after p is fully visible
-                        }, 2000); // Delay for p to appear after h1 is fully visible
-                    }, 3000); // Delay for h1 to appear after hero image is fully visible
+                                                       nav.classList.add('visible');
+                            }, 2000);
+                        }, 2000);
+                    }, 3000);
                 }, 1000);
             };
         });
