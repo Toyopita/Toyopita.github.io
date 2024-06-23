@@ -23,18 +23,21 @@
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
-                color: var(--text-color);
+            background-color: var(--background-color);
+            color: var(--text-color);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
         .hero {
-            height: 10            background-color: #333;
+            height: 100vh;
+            background-color: #333;
             background-image: url('FullSizeRender.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
-            justify-content            position: relative;
+            justify-content: center;
+            position: relative;
             overflow: hidden;
         }
         .hero::before {
@@ -46,7 +49,8 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.5);
         }
-        .hero-content {            text-align: center;
+        .hero-content {
+            text-align: center;
             z-index: 1;
         }
         h1 {
@@ -54,13 +58,15 @@
             font-size: 6rem;
             margin: 0;
             text-transform: uppercase;
-               text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             opacity: 0;
             transition: opacity 3s ease-out;
         }
         .hero-content p {
             font-size: 1.2rem;
-            ma            opacity: 0;
+            margin-top: 1rem;
+            opacity: 0;
             transform: translateY(-20px);
             transition: opacity 2s ease, transform 2s ease;
         }
@@ -68,7 +74,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-                    backdrop-filter: blur(10px);
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             height: 60px;
             display: flex;
@@ -76,7 +83,8 @@
         }
         nav ul {
             display: flex;
-             align-items: center;
+            justify-content: center;
+            align-items: center;
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -85,14 +93,16 @@
         }
         nav ul li {
             margin: 0;
-                   transform: translateY(0);
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         nav ul li a {
             color: var(--text-color);
             text-decoration: none;
             font-weight: bold;
-                     padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
             display: block;
         }
         nav ul li a:hover {
@@ -101,7 +111,8 @@
         .hamburger {
             display: none;
             cursor: pointer;
-            p        }
+            padding: 1rem;
+        }
         .hamburger div {
             width: 25px;
             height: 3px;
@@ -110,7 +121,8 @@
             transition: all 0.5s ease;
         }
         main {
-                  z-index: 1;
+            position: relative;
+            z-index: 1;
             padding-top: 2rem;
         }
         section {
@@ -119,14 +131,16 @@
             padding: 2rem;
             opacity: 0;
             transform: translateY(20px);
-            transitio        }
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
         section.visible {
             opacity: 1;
             transform: translateY(0);
         }
         h2 {
             font-family: 'Playfair Display', serif;
-                       color: var(--text-color);
+            font-size: 2.5rem;
+            color: var(--text-color);
             margin-bottom: 1rem;
             opacity: 0;
             transform: translateX(-50px);
@@ -134,7 +148,8 @@
         }
         h2.from-right {
             transform: translateX(50px);
-             section.visible h2 {
+        }
+        section.visible h2 {
             opacity: 1;
             transform: translateX(0);
         }
@@ -145,14 +160,16 @@
         ul {
             opacity: 1;
             transform: translateY(0);
-            tra        }
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
         section.visible ul {
             opacity: 1;
             transform: translateY(0);
         }
         ul li {
             opacity: 1;
-            transform: transla            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         ul.visible li {
             opacity: 1;
@@ -162,7 +179,8 @@
             margin: 2rem 0;
             border-radius: 12px;
             overflow: hidden;
-            box-sha        }
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
         a, a:visited, a:hover, a:active {
             color: #ffffff;
             text-decoration: none;
@@ -170,15 +188,14 @@
         #contact a {
             text-decoration: underline;
         }
-        @media (max-w            .hero-content h1 {
+        @media (max-width: 768px) {
+            h1 {
                 font-size: 4rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
             }
             .hero {
                 background-size: contain;
-                background-repeat: no-            }
+                background-repeat: no-repeat;
+            }
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -187,7 +204,8 @@
                 left: 0;
                 width: 100%;
                 background-color: rgba(18, 18, 18, 0.95);
-                height: auto            }
+                height: auto;
+            }
             nav ul.active {
                 display: flex;
             }
@@ -200,27 +218,14 @@
             .hamburger {
                 display: block;
             }
-                         transform: rotate(-45deg) translate(-5px, 6px);
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
             }
             .hamburger.active div:nth-child(2) {
                 opacity: 0;
             }
             .hamburger.active div:nth-child(3) {
-                transform: rotate(45deg) translate            }
-        }
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-        }
-        @media (max-width: 320p            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 0.8rem;
+                transform: rotate(45deg) translate(-5px, -6px);
             }
         }
     </style>
@@ -229,12 +234,14 @@
     <nav>
         <div class="hamburger">
             <div></div>
-                <div></div>
+            <div></div>
+            <div></div>
         </div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#music">Music</a></li>            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#achievements">Achievements</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -242,19 +249,22 @@
     <div class="hero" id="home">
         <div class="hero-content">
             <h1>Toyopita</h1>
-            <p>Sound Engineer / Producer        </div>
+            <p>Sound Engineer / Producer / Remixer</p>
+        </div>
     </div>
 
     <main>
         <section id="about">
             <h2>Artist Profile</h2>
-            <p>Born in Osaka in 1992, Toyopita began his musical journey in 2019. A true all-rounder, he handles every aspect of music production from track-making to mastering. His unique sound fuses electronic, hip-hop, and R&B, transcending genre b        </section>
+            <p>Born in Osaka in 1992, Toyopita began his musical journey in 2019. A true all-rounder, he handles every aspect of music production from track-making to mastering. His unique sound fuses electronic, hip-hop, and R&B, transcending genre boundaries.</p>
+        </section>
 
         <section id="music">
             <h2 class="from-right">Latest Music</h2>
             <p>Check out Toyopita's innovative sound on Spotify</p>
             <div class="spotify-embed">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6dEulYPan4tK73h2RMu1Ce?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="            </div>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6dEulYPan4tK73h2RMu1Ce?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
         </section>
 
         <section id="achievements">
@@ -266,17 +276,20 @@
                 <li>2022: Remix of HIBIKILLA's "Risin' to the Top feat. LAYA" featured on Spotify's official "Soul Music Japan" playlist</li>
             </ul>
         </section>
+
         <section id="contact">
             <h2 class="from-right">Contact</h2>
             <p>For inquiries about collaborations, production, or remixes, please contact:</p>
-            <p>Email: <a href="mailto:        </section>
+            <p>Email: <a href="mailto:contact@toyopita-official.com">contact@toyopita-official.com</a></p>
+        </section>
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             window.scrollTo(0, 0);
 
-            const observer = new Inter                entries.forEach(entry => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
@@ -285,7 +298,8 @@
                 threshold: 0.1
             });
 
-            document.querySelectorAll                observer.observe(section);
+            document.querySelectorAll('section').forEach((section) => {
+                observer.observe(section);
             });
 
             const hamburger = document.querySelector('.hamburger');
@@ -293,13 +307,15 @@
             const navItems = document.querySelectorAll('nav ul li');
 
             function toggleMenu() {
-                hamburger.classList.toggle                navUl.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                navUl.classList.toggle('active');
                 
                 if (navUl.classList.contains('active')) {
                     navItems.forEach((item, index) => {
                         setTimeout(() => {
                             item.style.opacity = '1';
-                            item.style.transform = 't                        }, 100 * (index + 1));
+                            item.style.transform = 'translateY(0)';
+                        }, 100 * (index + 1));
                     });
                 } else {
                     navItems.forEach(item => {
@@ -309,13 +325,15 @@
                 }
             }
 
-            hamburger.addEvent
+            hamburger.addEventListener('click', toggleMenu);
+
             document.querySelectorAll('nav ul li a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (window.innerWidth <= 768) {
                         toggleMenu();
                     }
                 });
+            });
 
             function handleResize() {
                 if (window.innerWidth > 768) {
@@ -323,12 +341,14 @@
                     hamburger.classList.remove('active');
                     navItems.forEach(item => {
                         item.style.opacity = '1';
-                        item.s                    });
+                        item.style.transform = 'translateY(0)';
+                    });
                 } else {
                     if (!navUl.classList.contains('active')) {
                         navItems.forEach(item => {
                             item.style.opacity = '0';
-                                                    });
+                            item.style.transform = 'translateY(-20px)';
+                        });
                     }
                 }
             }
@@ -338,7 +358,8 @@
 
             window.onload = () => {
                 const h1 = document.querySelector('.hero-content h1');
-                const 
+                const p = document.querySelector('.hero-content p');
+
                 setTimeout(() => {
                     h1.style.opacity = '1';
 
