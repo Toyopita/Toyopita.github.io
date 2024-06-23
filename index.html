@@ -39,6 +39,11 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            transition: opacity 3s ease-out;
+        }
+        .hero.visible {
+            opacity: 1;
         }
         .hero::before {
             content: '';
@@ -190,10 +195,10 @@
         }
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem; /* Smaller font size for smaller screens */
+                font-size: 2rem; /* Smaller font size for smaller screens */
             }
             .hero-content p {
-                font-size: 1rem; /* Smaller font size for smaller screens */
+                font-size: 0.8rem; /* Smaller font size for smaller screens */
             }
             .hero {
                 background-size: contain;
@@ -360,10 +365,12 @@
             handleResize();
 
             window.onload = () => {
+                const hero = document.querySelector('.hero');
                 const h1 = document.querySelector('.hero-content h1');
                 const p = document.querySelector('.hero-content p');
 
                 setTimeout(() => {
+                    hero.classList.add('visible');
                     h1.style.opacity = '1';
 
                     setTimeout(() => {
