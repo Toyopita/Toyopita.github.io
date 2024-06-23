@@ -34,7 +34,7 @@
             background-image: url('FullSizeRender.jpg');
             background-size: contain; /* Change to contain to maintain aspect ratio */
             background-repeat: no-repeat; /* Prevent background repeat */
-            background-position: center;
+            background-position: center; /* Default position for desktop */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,14 +200,15 @@
             text-decoration: underline;
         }
         @media (max-width: 768px) {
+            .hero {
+                background-position: right; /* Move background image to the right for mobile */
+                height: calc(100vh - 60px); /* Adjust height to remove top and bottom space */
+            }
             h1 {
                 font-size: 2rem; /* Smaller font size for smaller screens */
             }
             .hero-content p {
-                font-size: 0.7rem; /* Smaller font size for smaller screens */
-            }
-            .hero {
-                height: calc(100vh - 60px); /* Adjust height to remove top and bottom space */
+                font-size: 0.5rem; /* Smaller font size for smaller screens */
             }
             nav ul {
                 display: none;
