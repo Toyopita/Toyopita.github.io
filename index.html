@@ -18,6 +18,7 @@
             --primary-color: #1db954;
             --background-color: #121212;
             --text-color: #ffffff;
+            --accent-color: #DF4349;
         }
         body, html {
             margin: 0;
@@ -70,8 +71,8 @@
             transition: opacity 3s ease-out;
         }
         .hero-content p {
-            font-size: 1.2rem; /* Increase font size by 20% */
-            margin-top: 0.5rem; /* Reduce space between h1 and p */
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 2s ease, transform 2s ease;
@@ -117,7 +118,7 @@
             display: block;
         }
         nav ul li a:hover {
-            color: #DF4349;
+            color: var(--accent-color);
         }
         .hamburger {
             display: none;
@@ -169,17 +170,31 @@
             line-height: 1.8;
         }
         ul {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            list-style: none;
             padding: 0;
             margin: 0;
         }
-        ul li {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            margin-bottom: 0.5rem; /* 各リスト項目の間隔を均等にするために追加 */
+        .achievement-year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-top: 2rem; /* Add space above each year */
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.5rem;
+        }
+        .achievement-details {
+            padding-left: 1.5rem;
+        }
+        .achievement-details li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+        .achievement-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
         }
         .spotify-embed {
             margin: 2rem 0;
@@ -196,15 +211,15 @@
         }
         @media (max-width: 768px) {
             .hero {
-                background-position: 80% center; /* Move background image 20% towards the right */
-                height: 100vh; /* Adjust height to remove top and bottom space */
+                background-position: 80% center;
+                height: 100vh;
             }
             h1 {
-                font-size: 2rem; /* Smaller font size for smaller screens */
+                font-size: 2rem;
             }
             .hero-content p {
-                font-size: 0.5rem; /* Smaller font size for smaller screens */
-                margin-top: 0.5rem; /* Reduce space between h1 and p */
+                font-size: 0.5rem;
+                margin-top: 0.5rem;
             }
             nav ul {
                 display: none;
@@ -279,37 +294,32 @@
 
         <section id="achievements">
             <h2>Career Highlights</h2>
-            <ul class="visible">
-                <li>2019:
-                    <ul>
-                        <li>Debuted as Toyopita Which, launching a career in electronic music production and sound engineering</li>
-                        <li>Remixed SHIMPEI's track "noname" featuring Evisbeats, achieving 63,000 plays and 800 likes on Soundcloud</li>
-                    </ul>
-                </li>
-                <li>2021:
-                    <ul>
-                        <li>Featured on 4ceFINGER's EP "44 MAGNUM", gaining recognition on HIP HOP DNA</li>
-                        <li>Released "Know Your Roots", a remix distributed through Universal Music's Spinnup Japan</li>
-                        <li>Winner of the 1st and 2nd 8-bar Awards. The track "Fivepita" received high praise from Kubota Masahiko</li>
-                    </ul>
-                </li>
-                <li>2022:
-                    <ul>
-                        <li>Remix of HIBIKILLA's "LUNA" featured on Apple Music's official "Latest R&B Playlist"</li>
-                        <li>Remix of HIBIKILLA's "Risin' to the Top feat. LAYA" featured on Spotify's official "Soul Music Japan" playlist</li>
-                    </ul>
-                </li>
-                <li>2023:
-                    <ul>
-                        <li>Contributed 3 tracks to HIBIKILLA's album "KillerTune", which reached #1 on iTunes Reggae Chart</li>
-                        <li>Remixed HIBIKILLA's "Yohaku & Sentence" featuring R&B singer KOTA</li>
-                    </ul>
-                </li>
-                <li>2024:
-                    <ul>
-                        <li>Mastering engineer for Beautiful Distance's singles "Light My Fire" and "monologue", based in Tokyo</li>
-                    </ul>
-                </li>
+            <ul>
+                <li class="achievement-year">2019</li>
+                <ul class="achievement-details">
+                    <li>Debuted as Toyopita Which, launching a career in electronic music production and sound engineering</li>
+                    <li>Remixed SHIMPEI's track "noname" featuring Evisbeats, achieving 63,000 plays and 800 likes on Soundcloud</li>
+                </ul>
+                <li class="achievement-year">2021</li>
+                <ul class="achievement-details">
+                    <li>Featured on 4ceFINGER's EP "44 MAGNUM", gaining recognition on HIP HOP DNA</li>
+                    <li>Released "Know Your Roots", a remix distributed through Universal Music's Spinnup Japan</li>
+                    <li>Winner of the 1st and 2nd 8-bar Awards. The track "Fivepita" received high praise from Kubota Masahiko</li>
+                </ul>
+                <li class="achievement-year">2022</li>
+                <ul class="achievement-details">
+                    <li>Remix of HIBIKILLA's "LUNA" featured on Apple Music's official "Latest R&B Playlist"</li>
+                    <li>Remix of HIBIKILLA's "Risin' to the Top feat. LAYA" featured on Spotify's official "Soul Music Japan" playlist</li>
+                </ul>
+                <li class="achievement-year">2023</li>
+                <ul class="achievement-details">
+                    <li>Contributed 3 tracks to HIBIKILLA's album "KillerTune", which reached #1 on iTunes Reggae Chart</li>
+                    <li>Remixed HIBIKILLA's "Yohaku & Sentence" featuring R&B singer KOTA</li>
+                </ul>
+                <li class="achievement-year">2024</li>
+                <ul class="achievement-details">
+                    <li>Mastering engineer for Beautiful Distance's singles "Light My Fire" and "monologue", based in Tokyo</li>
+                </ul>
             </ul>
         </section>
 
