@@ -178,9 +178,9 @@
         .achievement-year {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--accent-color);
+            color: var(--text-color);
             margin-top: 2rem;
-            border-left: 4px solid var(--accent-color);
+            border-left: 4px solid var(--text-color);
             padding-left: 0.5rem;
         }
         .achievement-details {
@@ -195,7 +195,7 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--accent-color);
+            color: var(--text-color);
         }
         .spotify-embed {
             margin: 2rem 0;
@@ -289,12 +289,12 @@
 
     <main>
         <section id="about">
-    		<h2 class="from-left">Artist Profile</h2>
-    		<p>Born in Osaka in 1992, Toyopita began his musical journey in 2019. A true all-rounder, he handles every aspect of music production from track-making to mastering.</p>
-    		<p>Deeply inspired by Jamaica's dub culture and the free-spirited expression of reggae music, Toyopita's approach to music creation is both innovative and deeply rooted in tradition.</p>
-    		<p>As a music creator, he's captivated by the art of transforming existing tracks and the innovative techniques at the root of remixing. This fascination drives his unique production style.</p>
-    		<p>Toyopita's sound is further shaped by influences from hip-hop, R&B, and techno, pushing the boundaries to craft unique musical experiences that transcend genre limitations.</p>
-	</section>
+            <h2 class="from-left">Artist Profile</h2>
+            <p>1992年大阪生まれのToyopitaは、2019年に音楽の道を歩み始めました。トラック制作からマスタリングまで、音楽制作のあらゆる側面を手掛ける真の多才な人物です。</p>
+            <p>ジャマイカのダブカルチャーと、レゲエ音楽の自由奔放な表現に深く影響を受けたToyopitaの音楽創作アプローチは、革新的でありながら伝統に深く根ざしています。</p>
+            <p>音楽クリエイターとして、彼は既存の楽曲を変容させる技術と、リミックスの根幹にある革新的な手法に魅了されています。この魅力が、彼独自の制作スタイルを駆動しています。</p>
+            <p>Toyopitaのサウンドは、さらにヒップホップ、R&B、テクノなどの影響を受けて形作られ、ジャンルの境界を押し広げ、唯一無二の音楽体験を生み出しています。</p>
+        </section>
 
         <section id="achievements">
             <h2>Career Highlights</h2>
@@ -371,7 +371,7 @@
 
             const hamburger = document.querySelector('.hamburger');
             const navUl = document.querySelector('nav ul');
-            const navItems = document.querySelectorAll('nav ul li');
+	    const navItems = document.querySelectorAll('nav ul li');
 
             function toggleMenu() {
                 hamburger.classList.toggle('active');
@@ -402,7 +402,7 @@
                 });
             });
             
-						function handleResize() {
+            function handleResize() {
                 if (window.innerWidth > 768) {
                     navUl.classList.remove('active');
                     hamburger.classList.remove('active');
